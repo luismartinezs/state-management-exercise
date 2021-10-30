@@ -1,6 +1,18 @@
-<script></script>
+<script>
+import usePost from "./composables/usePost";
 
-<template>APP</template>
+export default {
+  setup() {
+    const { loadPost, getPost } = usePost();
+    loadPost(1);
+    return {
+      post: getPost,
+    };
+  },
+};
+</script>
+
+<template>{{ post && post.content }}</template>
 
 <style>
 #app {
